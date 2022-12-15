@@ -9,6 +9,8 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
+import { labelLastSevenDays } from "../../constants/const/dashboard";
+
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(
@@ -25,23 +27,18 @@ export const options = {
     responsive: true,
     plugins: {
         legend: {
-            position: "top",
+            position: "",
         },
-        title: {
-            // display: true,
-            text: "Chart.js Line Chart",
-        },
+        title: {},
     },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
 export const data = {
-    labels,
+    labels: labelLastSevenDays,
     datasets: [
         {
-            label: "Number of subscribers in the last 7 days",
-            data: labels.map(() => Math.ceil(Math.random() * 1000)),
+            labels: "",
+            data: labelLastSevenDays.map(() => Math.ceil(Math.random() * 100)),
             borderColor: "rgb(255, 99, 132)",
             backgroundColor: "rgba(255, 99, 132, 0.5)",
         },
@@ -50,9 +47,11 @@ export const data = {
 
 const Subcription = () => {
     return (
-        <div>
-            {/* <Chart type="line" data={[3, 5, 6, 2, 4, 5]} /> */}
-            <Line options={options} data={data} width={1000} height={500} />
+        <div className="text-center">
+            <Line data={data} options={options} width={"1000"} height={500} />
+            <p className="mt-4 font-bold text-[18px]">
+                Number of subscribers in the last 7 days
+            </p>
         </div>
     );
 };

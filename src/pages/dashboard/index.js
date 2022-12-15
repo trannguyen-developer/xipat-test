@@ -7,16 +7,14 @@ const Dashboard = () => {
     return (
         <div>
             <p className="font-semibold">Dashboard</p>
-            <div>
-                <Tabs defaultActiveKey="1">
-                    <Tabs.TabPane tab="Subcription" key="1">
-                        <Subcription />
-                    </Tabs.TabPane>
-                    <Tabs.TabPane tab="Revenue" key="2">
-                        <Revenue />
-                    </Tabs.TabPane>
-                </Tabs>
-            </div>
+            <Tabs defaultActiveKey="1">
+                <Tabs.TabPane tab="Subcription" key="1">
+                    <Subcription />
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="Revenue" key="2">
+                    <Revenue />
+                </Tabs.TabPane>
+            </Tabs>
         </div>
     );
 };
