@@ -45,8 +45,6 @@ export const data = {
     ],
 };
 
-console.log("month", monthOfCurrentYear);
-
 const Revenue = () => {
     return (
         <div className="text-center">

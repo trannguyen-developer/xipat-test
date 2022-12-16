@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table, Popover } from "antd";
 import { FolderViewOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 
 const columns = [
     {
@@ -43,14 +43,11 @@ const ManagementPost = () => {
     const postsRef = useRef(null);
     const [dataPosts, setDataPosts] = useState([]);
 
-    console.log("postsRef", postsRef);
-
     useEffect(() => {
         axios
             .get(`https://jsonplaceholder.typicode.com/posts`)
             .then((res) => {
                 const posts = res.data;
-                console.log("persons", posts);
                 postsRef.current = posts;
                 setDataPosts(posts);
             })
@@ -58,7 +55,6 @@ const ManagementPost = () => {
     }, []);
 
     const onFinish = (values) => {
-        console.log("Success:", values);
         if (values.search === "") {
             setDataPosts(postsRef.current);
             return;
